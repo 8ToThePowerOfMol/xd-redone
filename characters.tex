@@ -1,0 +1,1662 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{landscape} 
+\geometry{margin=0.6in} 
+\geometry{top=0.4in}
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{empty} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+%++ Font
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+\usepackage{lmodern}
+
+%++ List reduced spaces
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+
+%++ Paragraphs indentation settings
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+%++ Font color
+\usepackage[table,dvipsnames]{xcolor}
+
+%++ Tengwar letters
+\usepackage[all]{tengwarscript}
+
+%++ Math symbols
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+
+%++ Number the abilities like theorems
+\usepackage{amsthm}
+\theoremstyle{remark}
+\newtheorem{task}{}
+\newtheorem{ability}{}
+
+%++ Table on multiple pages
+\usepackage{longtable}
+
+%++ Albert icon
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\newcommand{\albert}{\Nursey[][yellow][blue][red]}
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{\textbf{XD--Hra} \\ \tengmag{1.6}
+\Tcalma \Tlefthook \Tando  \Tanga \TTthreedots \Tmalta \TTacute
+}
+\author{\textbf{Postavy} \\ \tengmag{1.2}
+\Ttelco \TTthreedots \Tcalma \Ttinco \TTrightcurl \Toore \Tsilme
+}
+\date{}
+
+\newcommand{\n}{\newline}
+
+% Image variables
+\newcommand{\dispimgmargin}{0.01}
+\newcommand{\dispimgwidth}{.14}
+\newcommand{\displayimg}[1]{\raisebox{\dispimgmargin\totalheight}{\centering\includegraphics[width=\dispimgwidth\textwidth]{img/#1.pdf}}}
+\newcommand{\treelogo}{~~\raisebox{\dispimgmargin\totalheight}{\centering\includegraphics[width=.016\textwidth]{img/tree.pdf}}~~}
+\newcommand{\eyelogo}{\raisebox{\dispimgmargin\totalheight}{\centering\includegraphics[width=.035\textwidth]{img/eye.pdf}}}
+\newcommand{\colorstrength}{70}
+
+% Short colors
+\newcommand{\buff}[1]{\color{ForestGreen}#1}
+\newcommand{\atck}[1]{\color{Red}#1}
+\newcommand{\magic}[1]{\color{Purple}#1}
+
+% Notation
+\newcommand{\murderratevalue}{\mathbin{\upsilon_n}}
+\newcommand{\murderrateunit}{\mathbin{\upsilon_J}}
+
+
+% PUBLIC RACES TABLE
+
+% Race names
+\newcommand{\humans}{Lidé}
+\newcommand{\elfs}{Elfové}
+\newcommand{\dwarfs}{Trpaslíci}
+\newcommand{\hobits}{Hobiti}
+\newcommand{\orcs}{Skřeti}
+\newcommand{\spiders}{Pavouci}
+
+% Ability names
+\newcommand{\abhuman}{\buff{První úder}}
+\newcommand{\abelf}{\buff{Qeunya}}
+\newcommand{\abdwarf}{\buff{Řemeslnictví}}
+\newcommand{\abhobit}{\buff{Únik}}
+\newcommand{\aborc}{\atck{Bestie}}
+% Spider abilities, needed to define earlier
+\newcommand{\abpoison}{\atck{Otrávení}}
+\newcommand{\abcure}{\magic{Léčení}}
+
+\begin{document}
+
+\textbf{\large Rasy} \\
+
+\begin{longtable}{ |m{1.5cm}m{2.5cm}||>{\footnotesize}m{13cm}|>{\footnotesize}m{6.2cm}| }
+    \textbf{Rasa} & & \textbf{Schopnosti} & \textbf{Úkoly} \\
+    \hline
+
+    \Tmalta \TTacute \Tnuumen &
+    \humans &
+    {\textbf{\abhuman}}: Ve sporných situacích, kdo udělal akci dřív, vždy vyhraje člověk (např. kdo použije dříve dýku, pokud se dva chytí navzájem). &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Mohou mít tajný úkol.}
+    \end{itemize}\\
+    \hline
+
+    \Ttelco \TTacute \Tlambe \Tformen \Tsilme &
+    \elfs &
+    {\textbf{\abelf}}: Mají základní znalosti o jazyku Quenya. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+    \end{itemize}\\
+    \hline
+
+    \Tando \Tvilya \TTthreedots \Toore \Tvala \TTacute \Tsilme &
+    \dwarfs &
+    {\textbf{\abdwarf}}: Jednou za hru mohou vyrobit nějaký herní předmět. \albert &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Mohou mít tajný úkol.}
+    \end{itemize}\\
+    \hline
+
+    \Thyarmen \TTrightcurl \Tumbar \TTdot \Ttinco \Tsilme &
+    \hobits &
+    {\textbf{\abhobit}}: Pokud dojde k jeho odhlasování o upálení, tak nebude upálen. Tato schopnost má navíc skrytý bonus. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+    \end{itemize}\\
+    \hline
+
+    \Ttelco \TTrightcurl \Toore \Tcalma \Tsilme &
+    \orcs &
+    {\textbf{\aborc}}: K zavraždění nepotřebuje předmět. Pro zavraždění musí chytit oběť (nelze na dálku) a pak musí s oběťí zůstat alespoň jednu minutu (\textit{aby se najedl}). &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+    \end{itemize}\\
+    \hline
+
+    % Liantët
+    \Tlambe \TTdot \Ttelco \TTthreedots \Tanto \TTacute \Ttinco &
+    \spiders &
+    {\textbf{\abpoison}}: K zavraždění nepotřebuje předmět. Po otrávení je oběť po 15 minut paralyzována -- nemůže se hýbat, může mluvit, ale ne křičet. Tento účinek lze v tuto dobu zvrátit schopností {\abcure}. Po uplynutí 15 minut oběť umírá. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+    \end{itemize}\\
+    \hline
+\end{longtable}
+
+\,\\
+
+% PUBLIC CHARACTER TABLE
+
+\newcommand{\abtalk}{\magic{Zpěv Lúthien}}
+\newcommand{\abdetect}{\magic{Detekce}}
+\newcommand{\abmassdetect}{\magic{Hluboká Analýza}}
+\newcommand{\abrevert}{\magic{Obnova}}
+\newcommand{\abconvert}{\magic{Konverze}}
+\newcommand{\abresurrect}{\magic{Oživení}}
+\newcommand{\abtrial}{\magic{Síla Nenya}}
+\newcommand{\abhints}{\magic{Ósanwe}}
+\newcommand{\abselfdefense}{\buff{Sebeobrana}}
+\newcommand{\abtraining}{\buff{Výcvik}}
+\newcommand{\abimmortal}{\buff{Nesmrtelnost}}
+\newcommand{\abbats}{\magic{Netopýři}}
+\newcommand{\abdrain}{\atck{Vysátí}}
+\newcommand{\abtransfer}{\magic{Přenos}}
+\newcommand{\abringsense}{\magic{Citlivost na Prsten}}
+\newcommand{\abfemale}{\atck{Žena}}
+\newcommand{\abalchemy}{\magic{Bylinkářství}}
+
+\newcommand{\taskmiddleearth}{Zbavit se všech příslušníků Temné armády.}
+\newcommand{\taskdarkarmy}{Zbavit se všech příslušníků Středozemě.}
+
+\textbf{\large Postavy} \\
+
+\begin{longtable}{ |m{1.8cm}m{2.2cm}||m{1cm}|m{0.8cm}|m{2cm}|>{\footnotesize}m{7.8cm}|>{\footnotesize}m{6cm}| }
+    \textbf{Postava} & & \textbf{Frakce} & \textbf{Aura} & \textbf{Rasa} & \textbf{Schopnosti} & \textbf{Úkoly} \\
+    \hline
+
+    \Ttelco \TTacute \Tlambe \Troomen \TTrightcurl \Tando &
+    Elrond &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \elfs &
+    \textbf{\abtalk}: Jednou za hru po provedení jeho rituálního zpěvu může nechat promluvit jednoho mrtvého po 1 minutu. \n
+    \textbf{\abcure}: Jednou za den může zrušit nadcházející účinek schopnosti {\abpoison}. \n
+    \textbf{\abelf}. &
+    \begin{itemize}
+        \item \textbf{Vládce}.
+        \item (Hlavní úkol Středozemě:) \taskmiddleearth
+    \end{itemize}\\
+    \hline
+
+    \Tanga \TTthreedots \Tando \TTthreedots \Tlambe \Tformen &
+    Gandalf &
+    \treelogo &
+    \cellcolor{gray!\colorstrength} &
+    &
+    \textbf{\abdetect}: Jednou za den se může zjistit auru jakéhokoliv hráče. \albert \n
+    \textbf{\abmassdetect}: Jednou za hru může vybrat jednoho hráče. Gandalf se dozví, kdo přesně je vybraný hráč za postavu, rasu a jaké má skryté schopnosti a úkoly. Navíc, Gandalf se dozví aury všech jeho spolubydlících a sousedů.\footnote{Pokud vybraný spí ve stanu, dozví se auru jeho spolubydlícího a aury všech hráčů v okolních stanech. Pokud vybraný spí v hangáru/teepee, dozví se aury všech jeho spolubydlících.} Počet použití této schopnosti nelze nijak navýšit. Tuto schopnost může použít pouze Gandalf. \albert \n 
+    \textbf{\abrevert}: Jednou za hru může zrušit poslední efekt schopnosti {\abconvert}. Zhruba řečeno, přemění postavu konvertovaného hráče na jeho předcházející postavu. \n
+    \textit{Může mít skryté schopnosti.} &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Fellowship.
+    \end{itemize}\\
+    \hline
+
+    \Tanga \TTthreedots \Tlambe \TTthreedots \Tando \Troomen \TTdot \Ttelco \TTacute \Tlambe &
+    Galadriel &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \elfs &
+    \textbf{\abresurrect}: Jednou za hru může oživit mrtvého hráče. \n
+    \textbf{\abhints}: Nepravidelně se může dozvědět různé informace o aktuální situaci. \albert \n
+    \textbf{\abtrial}: Jednou za hru může změnit výsledek soudu zcela podle její vlastní vůle. Schopnost {\abhobit} neplatí proti této schopnosti. Počet použití této schopnosti nelze nijak navýšit. Tuto schopnost může použít pouze Galadriel. \n
+    \textbf{\abelf}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+    \end{itemize}\\
+    \hline
+
+    \Tcalma \TTacute \Tlambe \TTacute \Tumbar \TTrightcurl \Toore \Tnuumen &
+    Celeborn &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \elfs &
+    \textbf{\abcure}. \n
+    \textbf{\abresurrect}. \n
+    \textbf{\abelf}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+    \end{itemize}\\
+    \hline
+
+    \Ttelco \TTthreedots \Troomen \TTthreedots \Tanga \TTrightcurl \Toore \Tnuumen &
+    Aragorn &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \humans &
+    \textbf{\abselfdefense}: Převrátí veškeré pokusy o vraždu a převrací schopnost {\aborc}. Nefunguje, pokud má útočník schopnost {\abimmortal} nebo speciální schopnost rušící tuto schopnost. \n
+    \textbf{\abtraining}: Může zavraždit nějakou oběť jednou za den namísto jednou za hru. \n
+    \textbf{\abhuman}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Fellowship.
+    \end{itemize}\\
+    \hline
+
+    \Ttelco \TTthreedots \Toore \Tvilya \TTacute \Tnuumen &
+    Arwen &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \elfs &
+    \textbf{\abcure}. \n
+    \textbf{\abelf}. \n
+    Ví, kdo je doopravdy Aragorn. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item Aragorn musí nesmí být na konci hry mrtvý nebo konvertovaný.
+    \end{itemize}\\
+    \hline
+
+    \Tanga \Tlambe \TTrightcurl \Toore \Tformen \TTdot \Tando \TTacute \Tlambe &
+    Glorfindel &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \elfs &
+    \textbf{\abselfdefense}. \n
+    \textbf{\abtraining}. \n
+    \textbf{\abelf}. \n
+    \textit{Může mít skryté schopnosti.} &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+    \end{itemize}\\
+    \hline
+
+    \Tlambe \TTacute \Tanga \TTrightcurl \Tlambe \TTthreedots \Tsilme &
+    Legolas &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \elfs &
+    \textbf{\abtraining}. \n
+    \textbf{\abelf}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item Odstranit více skřetů než Gimli.
+        \item \textit{Může mít tajný úkol.} % Fellowship.
+    \end{itemize}\\
+    \hline
+
+    \Tthuule \TTrightcurl \Troomen \TTdot \Tnuumen &
+    Thorin &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \dwarfs &
+    \textbf{\abtraining}. \n
+    \textbf{\abdwarf}. &
+    \begin{itemize}
+        \item \textbf{Vládce}.
+        \item Hlavní úkol Středozemě.
+        \item Zbavit se Azoga.
+    \end{itemize}\\
+    \hline
+
+    \Tumbar \TTthreedots \Tlambe \TTdot \Tnuumen &
+    Balin &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \dwarfs &
+    \textbf{\abhuman}. \n
+    \textbf{\abdwarf}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+    \end{itemize}\\
+    \hline
+
+    \Tanga \Tlambe \Taara \TTrightcurl \TTdot \Tnuumen &
+    Glóin &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \dwarfs &
+    \textbf{\abdwarf}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+    \end{itemize}\\
+    \hline
+
+    \Tanga \TTdot \Tmalta \Tlambe \TTdot &
+    Gimli &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \dwarfs &
+    \textbf{\abtraining}. \n
+    \textbf{\abdwarf}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item Odstranit více skřetů než Legolas.
+        \item \textit{Může mít tajný úkol.} % Fellowship.
+    \end{itemize}\\
+    \hline
+
+    \Tando \TTacute \Tnuumen \TTacute \Tthuule \TTrightcurl \Toore  \Ts \Thwesta \Tcolon &
+    Denethor II. &
+    \treelogo &
+    \cellcolor{red!\colorstrength} &
+    \humans &
+    \textbf{\abhuman}. &
+    \begin{itemize}
+        \item \textbf{Vládce}.
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Získat Prsten pro sebe.
+    \end{itemize}\\
+    \hline
+    % Secret quest to obtain the One Ring.
+
+    \Tumbar \TTrightcurl \Troomen \TTrightcurl \Tmalta \TTdot \Toore &
+    Boromir &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \humans &
+    \textbf{\abtraining}. \n
+    \textbf{\abhuman}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Získat Prsten pro Denethora.
+    \end{itemize}\\
+    \hline
+
+    \Tformen \TTthreedots \Troomen \TTthreedots \Tmalta \TTdot \Toore &
+    Faramir &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \humans &
+    \textbf{\abtraining}. \n
+    \textbf{\abhuman}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Získat Prsten pro Denethora.
+    \end{itemize}\\
+    \hline
+
+    \Tthuule \Taara \TTacute \TTrightcurl \Tando \TTacute \Tnuumen &
+    Théoden &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \humans &
+    \textbf{\abtraining}. \n
+    \textbf{\abhuman}. &
+    \begin{itemize}
+        \item \textbf{Vládce}.
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Nic.
+    \end{itemize}\\
+    \hline
+
+    \Taara \TTacute \TTrightcurl \Tmalta \TTacute \Toore &
+    Éomer &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \humans &
+    \textbf{\abtraining}. \n
+    \textbf{\abhuman}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Nic.
+    \end{itemize}\\
+    \hline
+
+    \Taara \TTacute \TTrightcurl \Tvilya \TTtwodotsbelow \Tnuumen &
+    Éowyn &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \humans &
+    \textbf{\abhuman}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Nic.
+    \end{itemize}\\
+    \hline
+
+    \Tumbar \TTdot \Tlambe \Tumbar \TTrightcurl &
+    Bilbo &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \hobits &
+    Ví, kdo je doopravdy Gollum. \n
+    \textbf{\abhobit}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.}
+    \end{itemize}\\
+    \hline
+
+    \Tformen \Troomen \TTrightcurl \Tando \TTrightcurl &
+    Frodo &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \hobits &
+    Ví, kdo je doopravdy Bilbo. \n
+    \textbf{\abhobit}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Fellowship.
+    \end{itemize}\\
+    \hline
+
+    \Tsilmenuquerna \TTthreedots \Tmalta &
+    Sam &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \hobits &
+    \textbf{\abhobit}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item Získat vlas od Galadriel.
+        \item \textit{Může mít tajný úkol.} % Fellowship.
+    \end{itemize}\\
+    \hline
+
+    \Tparma \TTacute \Troomen \TTacute \Tanga \Troomen \TTdot \Tnuumen &
+    Pipin &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \hobits &
+    \textbf{\abhobit}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Fellowship.
+    \end{itemize}\\
+    \hline
+
+    \Tmalta \TTacute \Toore \Toore \TTtwodotsbelow &
+    Smíšek &
+    \treelogo &
+    \cellcolor{blue!\colorstrength} &
+    \hobits &
+    \textbf{\abhobit}. &
+    \begin{itemize}
+        \item Hlavní úkol Středozemě.
+        \item \textit{Může mít tajný úkol.} % Fellowship.
+    \end{itemize}\\
+    \hline
+
+    % Thauron
+    \Tthuule \Tuure \TTthreedots \Troomen \TTrightcurl \Tnuumen &
+    Sauron &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    &
+    \textbf{\abbats}: Jednou za den může zrušit konání jednoho soudu za jednoho zavražděného. Použití této schopnosti nelze nijak navýšit. Tuto schopnost může použít pouze příslušník frakce Temné armády. \albert \n
+    \textbf{\abhints}. \n
+    \textbf{\abimmortal}: Nelze ho zavraždit, upálit, konvertovat nebo sebrat jeho schopnosti běžným způsobem. \n
+    \textbf{\abtraining}. \n
+    \textit{Může mít tajné schopnosti.} &
+    \begin{itemize}
+        \item (Hlavní úkol Temné armády:) Zbavit se všech příslušníků Středozemě.
+    \end{itemize}\\
+    \hline
+
+    \Tmalta \TTrightcurl \Tarda \TTleftcurl &
+    Mordu &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    &
+    \textbf{\abdrain}: Jednou za hru může sebrat všechny schopnosti jednoho hráče. \albert \n 
+    \textbf{\abtransfer}: Jednou za hru může přenést všechny své schopnosti (včetně této) na jiného hráče. \albert \footnote{Počet použití těchto schopností se počítá vzhledem k použití v rámci hry -- nezávisí na hráči, jež schopnost použil. Pokud se {\abdrain} a {\abtransfer} přenesou na jiného hráče, neumožňuje toto tyto schopnosti znovu využít zvýhodněným hráčem. Nicméně, jejich další použití lze umožnit prostřednictvím Kamene moci nebo jiného předmětu.} \n
+    Ví, kdo je ve skutečnosti Sauron. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+    \end{itemize}\\
+    \hline
+
+    % Angmarin Noitakuningas
+    \Ttelco \TTthreedots \Tanga \Tmalta \TTthreedots \Troomen \TTdot \Tnuumen  \Ts \Tnuumen \Tyanta \TTrightcurl \Ttinco \TTthreedots \Tcalma \TTleftcurl \Tnuumen \TTdot \Tanga \TTthreedots \Tsilme &
+    Lord Nazgûlů &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    &
+    \textbf{\aborc}. \n
+    \textbf{\abselfdefense}. \n
+    \textbf{\abtraining}. \n
+    Ví, kdo je ve skutečnosti Sauron. \n
+    \textit{Může mít tajné schopnosti.} &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+    \end{itemize}\\
+    \hline
+
+    % Úlairi
+    \Taara \TTleftcurl \Tlambe \Tyanta \TTthreedots \Troomen \TTdot &
+    Nazgûl &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    &
+    \textbf{\aborc}. \n
+    \textbf{\abtraining}. \n
+    \textit{Může mít tajné schopnosti.} &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+        \item \textit{Společně s Lordem Nazgûlů může jich hrát jeden až devět.}
+    \end{itemize}\\
+    \hline
+
+    \Ttelco \TTthreedots \Tessenuquerna \TTrightcurl \Tanga &
+    Azog &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    \orcs &
+    \textbf{\aborc}. \n
+    \textbf{\abtraining}. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+        \item Zbavit se Thorina.
+    \end{itemize}\\
+    \hline
+
+    \Ttelco \TTleftcurl \Tanga \Tlambe \Taara \TTleftcurl \Tcalma &
+    Uglúk &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    \orcs &
+    \textbf{\aborc}. \n
+    \textbf{\abtraining}. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+        \item \textit{Může mít tajný úkol.} % Pomoct Sarumanovi.
+    \end{itemize}\\
+    \hline
+
+    \Tmalta \Tuure \TTthreedots \Taha \Taara \TTleftcurl \Toore &
+    Mauhúr &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    \orcs &
+    \textbf{\aborc}. \n
+    \textbf{\abtraining}. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+        \item \textit{Může mít tajný úkol.} % Pomoct Sarumanovi.
+    \end{itemize}\\
+    \hline
+
+    \Tsilme \Taha \TTthreedots \Tanga \Troomen \TTthreedots \Ttinco &
+    Shagrat &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    \orcs &
+    \textbf{\aborc}. \n
+    \textbf{\abtraining}. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+    \end{itemize}\\
+    \hline
+
+    \Tanga \TTrightcurl \Toore \Tumbar \TTthreedots \Tanga &
+    Gorbag &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    \orcs &
+    \textbf{\aborc}. \n
+    \textbf{\abdwarf}. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+    \end{itemize}\\
+    \hline
+
+    \Tanga \Troomen \TTdot \Tsilme \Taha \Tnuumen \Taara \TTthreedots \Tcalma \Taha & 
+    Grishnákh &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    \orcs &
+    \textbf{\aborc}. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+    \end{itemize}\\
+    \hline
+
+    \Tsilme \Taha \TTacute \Tlambe \TTrightcurl \Tumbar &
+    Shelob &
+    \eyelogo &
+    \cellcolor{red!\colorstrength} &
+    \spiders &
+    \textbf{\abpoison}. \n
+    \textbf{\abtraining}. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+    \end{itemize}\\
+    \hline
+
+    \Tanga \Troomen \Taara \TTdot \Tmalta \TTthreedots &
+    Gríma &
+    \eyelogo &
+    \cellcolor{blue!\colorstrength} &
+    \humans &
+    \textbf{\abhuman}. &
+    \begin{itemize}
+        \item Hlavní úkol Temné armády.
+    \end{itemize}\\
+    \hline
+
+    \Tsilmenuquerna \TTthreedots \Troomen \TTleftcurl \Tmalta \TTthreedots \Tnuumen &
+    Saruman &
+    &
+    \cellcolor{gray!\colorstrength} &
+    &
+    \textbf{\abdetect}. \n
+    \textbf{\abconvert}: Jednou za den může přeměnit frakci jakéhokoliv hráče na jakoukoliv jinou frakci. \albert \n
+    \textit{Může mít skryté schopnosti.} &
+    \begin{itemize}
+        \item \textit{Tajný úkol.} % Získat Prsten pro sebe. Aliance se skřety.
+    \end{itemize}\\
+    \hline
+
+    \Troomen \TTthreedots \Tando \TTthreedots \Tanga \TTthreedots \Tsilme \Ttinco &
+    Radagast &
+    &
+    \cellcolor{gray!\colorstrength} &
+    &
+    \textbf{\abdetect}. \n
+    \textbf{\abalchemy}: Jednou za den může zjistit účinky použití předmětu bez nutnosti předmět použít. \albert \n
+    \textit{Může mít skryté schopnosti.} &
+    \begin{itemize}
+        \item \textit{Tajný úkol.} % Pokud zemře Gandalf, přechází k Středozemi.
+    \end{itemize}\\
+    \hline
+
+    \Tanga \TTrightcurl \Tlambe \TTdoubler \TTleftcurl \Tmalta &
+    Gollum &
+    &
+    \cellcolor{gray!\colorstrength} &
+    \hobits &
+    {\abhobit}. \n
+    \textit{Může mít skryté schopnosti.} &
+    \begin{itemize}
+        \item \textit{Tajný úkol.} % Zabránit zničení Prstenu.
+    \end{itemize}\\
+    \hline
+   
+    \Ttinco \TTrightcurl \Tmalta  \Ts \Tumbar \TTrightcurl \Tumbar \TTthreedots \Tando \TTdot \Tlambe &
+    Tom \n Bombadil &
+    &
+    \cellcolor{gray!\colorstrength} &
+    &
+    {\abimmortal}. \n
+    \textit{Může mít skryté schopnosti.} &
+    \begin{itemize}
+        \item Každý večer zpívá a tančí.
+        \item \textit{Tajný úkol.} % Zemřít a pak být oživen.
+    \end{itemize}\\
+    \hline
+
+\end{longtable}
+
+\newpage
+
+
+% CHARACTER CARDS AND MODERATOR TABLE
+% There must be fixed amount of newlines, otherewise card dimensions are messed!
+
+\newcommand{\namemiddleearth}{Středozem}
+\newcommand{\namedarkarmy}{Temná armáda}
+\newcommand{\nameneutral}{Neutrální}
+
+\newcommand{\blueaurabox}{\fcolorbox{black}{blue}{\rule{0pt}{4pt}\rule{4pt}{0pt}}}
+\newcommand{\redaurabox}{\fcolorbox{black}{red}{\rule{0pt}{4pt}\rule{4pt}{0pt}}}
+\newcommand{\grayaurabox}{\fcolorbox{black}{gray}{\rule{0pt}{4pt}\rule{4pt}{0pt}}}
+
+\newcommand{\elrondname}{Elrond}
+\newcommand{\elrondfaction}{\namemiddleearth}
+\newcommand{\elrondaura}{\blueaurabox}
+\newcommand{\elrondability}{{\abtalk}, {\abcure}, {\abelf}}
+\newcommand{\elrondtask}{(1) Vládce. (2) \taskmiddleearth}
+\newcommand{\elrondcard}{ \,\n%
+    \Ttelco \TTacute \Tlambe \Troomen \TTrightcurl \Tando \n\,\n%
+    \textbf{Překlad}: \elrondname \n%
+    \textbf{Frakce}: \elrondfaction  \n%
+    \textbf{Aura}: \elrondaura \n%
+    \textbf{Schopnosti}: \elrondability  \n%
+    \textbf{Úkoly}: \elrondtask
+}
+
+\newcommand{\gandalfname}{Gandalf}
+\newcommand{\gandalffaction}{\namemiddleearth}
+\newcommand{\gandalfaura}{\blueaurabox}
+\newcommand{\gandalfability}{{\abdetect}, {\abmassdetect}, {\abrevert}, {\abhints}, {\atck \textbf{Strážce Tajného Plamene}}: Můžeš zastavit Balroga.}
+\newcommand{\gandalftask}{(1) \taskmiddleearth (2) \textit{Prsten}.}
+\newcommand{\gandalfcard}{ \,\n%
+    \Tanga \TTthreedots \Tando \TTthreedots \Tlambe \Tformen \n\,\n%
+    \textbf{Překlad}: \gandalfname \n%
+    \textbf{Frakce}: \gandalffaction  \n%
+    \textbf{Aura}: \gandalfaura  \n%
+    \textbf{Schopnosti}: \gandalfability  \n%
+    \textbf{Úkoly}: \gandalftask
+}
+
+\newcommand{\galadrielname}{Galadriel}
+\newcommand{\galadrielfaction}{\namemiddleearth}
+\newcommand{\galadrielaura}{\blueaurabox}
+\newcommand{\galadrielability}{{\abresurrect}, {\abhints}, {\abtrial}, {\abelf}}
+\newcommand{\galadrieltask}{(1) \taskmiddleearth}
+\newcommand{\galadrielcard}{ \,\n%
+     \Tanga \TTthreedots \Tlambe \TTthreedots \Tando \Troomen \TTdot \Ttelco \TTacute \Tlambe \n\,\n%
+    \textbf{Překlad}: \galadrielname \n%
+    \textbf{Frakce}: \galadrielfaction \n%
+    \textbf{Aura}: \galadrielaura \n%
+    \textbf{Schopnosti}: \galadrielability \n%
+    \textbf{Úkoly}: \galadrieltask
+}
+
+\newcommand{\celebornname}{Celeborn}
+\newcommand{\celebornfaction}{\namemiddleearth}
+\newcommand{\celebornaura}{\blueaurabox}
+\newcommand{\celebornability}{{\abcure}, {\abresurrect}, {\abelf}}
+\newcommand{\celeborntask}{(1) \taskmiddleearth}
+\newcommand{\celeborncard}{ \,\n%
+    \Tcalma \TTacute \Tlambe \TTacute \Tumbar \TTrightcurl \Toore \Tnuumen \n\,\n%
+    \textbf{Překlad}: \celebornname \n%
+    \textbf{Frakce}: \celebornfaction \n%
+    \textbf{Aura}: \celebornaura \n%
+    \textbf{Schopnosti}: \celebornability \n%
+    \textbf{Úkoly}: \celeborntask
+}
+
+\newcommand{\aragornname}{Aragorn}
+\newcommand{\aragornfaction}{\namemiddleearth}
+\newcommand{\aragornaura}{\blueaurabox}
+\newcommand{\aragornability}{{\abselfdefense}, {\abtraining}, {\abhuman}}
+\newcommand{\aragorntask}{(1) \taskmiddleearth (2) \textit{Prsten}.}
+\newcommand{\aragorncard}{ \,\n%
+    \Ttelco \TTthreedots \Troomen \TTthreedots \Tanga \TTrightcurl \Toore \Tnuumen \n\,\n%
+    \textbf{Překlad}: \aragornname \n%
+    \textbf{Frakce}: \aragornfaction \n%
+    \textbf{Aura}: \aragornaura \n%
+    \textbf{Schopnosti}: \aragornability \n%
+    \textbf{Úkoly}: \aragornability
+}
+
+\newcommand{\arwenname}{Arwen}
+\newcommand{\arwenfaction}{\namemiddleearth}
+\newcommand{\arwenaura}{\blueaurabox}
+\newcommand{\arwenability}{{\abcure}, {\abelf}}
+\newcommand{\arwentask}{(1) \taskmiddleearth (2) Aragorn musí nesmí být na konci hry mrtvý nebo konvertovaný.}
+\newcommand{\arwencard}{ \,\n%
+    \Ttelco \TTthreedots \Toore \Tvilya \TTacute \Tnuumen \n\,\n%
+    \textbf{Překlad}: \arwenname \n%
+    \textbf{Frakce}: \arwenfaction \n%
+    \textbf{Aura}: \arwenaura \n%
+    \textbf{Schopnosti}: \arwenability \n%
+    \textbf{Úkoly}: \arwentask
+}
+
+\newcommand{\glorfindelname}{Glorfindel}
+\newcommand{\glorfindelfaction}{\namemiddleearth}
+\newcommand{\glorfindelaura}{\blueaurabox}
+\newcommand{\glorfindelability}{{\abselfdefense}, {\abtraining}, {\abelf}, {\atck \textbf{Strážce Tajného Plamene}}: Můžeš zastavit Balroga.}
+\newcommand{\glorfindeltask}{(1) \taskmiddleearth}
+\newcommand{\glorfindelcard}{ \,\n%
+    \Tanga \Tlambe \TTrightcurl \Toore \Tformen \TTdot \Tando \TTacute \Tlambe \n\,\n%
+    \textbf{Překlad}: \glorfindelname \n%
+    \textbf{Frakce}: \glorfindelfaction \n%
+    \textbf{Aura}: \glorfindelaura \n%
+    \textbf{Schopnosti}: \glorfindelability \n%
+    \textbf{Úkoly}: \glorfindeltask
+}
+
+\newcommand{\legolasname}{Legolas}
+\newcommand{\legolasfaction}{\namemiddleearth}
+\newcommand{\legolasaura}{\blueaurabox}
+\newcommand{\legolasability}{{\abtraining}, {\abelf}}
+\newcommand{\legolastask}{(1) \taskmiddleearth (2) Odstranit více skřetů než Gimli. (3) \textit{Prsten}.}
+\newcommand{\legolascard}{ \,\n%
+    \Tlambe \TTacute \Tanga \TTrightcurl \Tlambe \TTthreedots \Tsilme \n\,\n%
+    \textbf{Překlad}: \legolasname \n%
+    \textbf{Frakce}: \legolasfaction \n%
+    \textbf{Aura}: \legolasaura \n%
+    \textbf{Schopnosti}: \legolasability \n%
+    \textbf{Úkoly}: \legolastask
+}
+
+\newcommand{\thorinname}{Thorin}
+\newcommand{\thorinfaction}{\namemiddleearth}
+\newcommand{\thorinaura}{\blueaurabox}
+\newcommand{\thorinability}{{\abtraining}, {\abdwarf}}
+\newcommand{\thorintask}{(1) Vládce. (2) \taskmiddleearth (3) Zbavit se Azoga.}
+\newcommand{\thorincard}{ \,\n%
+    \Tthuule \TTrightcurl \Troomen \TTdot \Tnuumen \n\,\n%
+    \textbf{Překlad}: \thorinname \n%
+    \textbf{Frakce}: \thorinfaction \n%
+    \textbf{Aura}: \thorinaura \n%
+    \textbf{Schopnosti}: \thorinability \n%
+    \textbf{Úkoly}: \thorintask
+}
+
+\newcommand{\balinname}{Balin}
+\newcommand{\balinfaction}{\namemiddleearth}
+\newcommand{\balinaura}{\blueaurabox}
+\newcommand{\balinability}{{\abhuman}, {\abdwarf}}
+\newcommand{\balintask}{(1) \taskmiddleearth}
+\newcommand{\balincard}{ \,\n%
+    \Tumbar \TTthreedots \Tlambe \TTdot \Tnuumen \n\,\n%
+    \textbf{Překlad}: \balinname \n%
+    \textbf{Frakce}: \balinfaction \n%
+    \textbf{Aura}: \balinaura \n%
+    \textbf{Schopnosti}: \balinability \n%
+    \textbf{Úkoly}: \balintask
+}
+
+\newcommand{\gloinname}{Glóin}
+\newcommand{\gloinfaction}{\namemiddleearth}
+\newcommand{\gloinaura}{\blueaurabox}
+\newcommand{\gloinability}{{\abdwarf}}
+\newcommand{\glointask}{(1) \taskmiddleearth}
+\newcommand{\gloincard}{ \,\n%
+    \Tanga \Tlambe \Taara \TTrightcurl \TTdot \Tnuumen \n\,\n%
+    \textbf{Překlad}: \gloinname \n%
+    \textbf{Frakce}: \gloinfaction \n%
+    \textbf{Aura}: \gloinaura \n%
+    \textbf{Schopnosti}: \gloinability \n%
+    \textbf{Úkoly}: \glointask
+}
+
+\newcommand{\gimliname}{Gimli}
+\newcommand{\gimlifaction}{\namemiddleearth}
+\newcommand{\gimliaura}{\blueaurabox}
+\newcommand{\gimliability}{{\abtraining}, {\abdwarf}}
+\newcommand{\gimlitask}{(1) \taskmiddleearth (2) Odstranit více skřetů než Legolas. (3) \textit{Prsten}.
+}
+\newcommand{\gimlicard}{ \,\n%
+    \Tanga \TTdot \Tmalta \Tlambe \TTdot \n\,\n%
+    \textbf{Překlad}: \gimliname \n%
+    \textbf{Frakce}: \gimlifaction \n%
+    \textbf{Aura}: \gimliaura \n%
+    \textbf{Schopnosti}: \gimliability \n%
+    \textbf{Úkoly}: \gimlitask
+}
+
+\newcommand{\denethorname}{Denethor II.}
+\newcommand{\denethorfaction}{\namemiddleearth}
+\newcommand{\denethoraura}{\redaurabox}
+\newcommand{\denethorability}{{\abhuman}}
+\newcommand{\denethortask}{(1) Vládce. (2) \taskmiddleearth (3) \textit{Prsten!}}
+\newcommand{\denethorcard}{ \,\n%
+    \Tando \TTacute \Tnuumen \TTacute \Tthuule \TTrightcurl \Toore  \Ts \Thwesta \Tcolon \n\,\n%
+    \textbf{Překlad}: \denethorname \n%
+    \textbf{Frakce}: \denethorfaction \n%
+    \textbf{Aura}: \denethoraura \n%
+    \textbf{Schopnosti}: \denethorability \n%
+    \textbf{Úkoly}: \denethortask
+}
+
+\newcommand{\boromirname}{Boromir}
+\newcommand{\boromirfaction}{\namemiddleearth}
+\newcommand{\boromiraura}{\blueaurabox}
+\newcommand{\boromirability}{{\abtraining}, {\abhuman}}
+\newcommand{\boromirtask}{(1) \taskmiddleearth (2) \textit{Prsten!}}
+\newcommand{\boromircard}{ \,\n%
+    \Tumbar \TTrightcurl \Troomen \TTrightcurl \Tmalta \TTdot \Toore \n\,\n%
+    \textbf{Překlad}: \boromirname \n%
+    \textbf{Frakce}: \boromirfaction \n%
+    \textbf{Aura}: \boromiraura \n%
+    \textbf{Schopnosti}: \boromirability \n%
+    \textbf{Úkoly}: \boromirtask
+}
+
+\newcommand{\faramirname}{Faramir}
+\newcommand{\faramirfaction}{\namemiddleearth}
+\newcommand{\faramiraura}{\blueaurabox}
+\newcommand{\faramirability}{{\abtraining}, {\abhuman}}
+\newcommand{\faramirtask}{(1) \taskmiddleearth (2) \textit{Prsten!}}
+\newcommand{\faramircard}{ \,\n%
+    \Tformen \TTthreedots \Troomen \TTthreedots \Tmalta \TTdot \Toore \n\,\n%
+    \textbf{Překlad}: \faramirname \n%
+    \textbf{Frakce}: \faramirfaction \n%
+    \textbf{Aura}: \faramiraura \n%
+    \textbf{Schopnosti}: \faramirability \n%
+    \textbf{Úkoly}: \faramirtask
+}
+
+\newcommand{\theodenname}{Théoden}
+\newcommand{\theodenfaction}{\namemiddleearth}
+\newcommand{\theodenaura}{\blueaurabox}
+\newcommand{\theodenability}{{\abtraining}, {\abhuman}}
+\newcommand{\theodentask}{(1) Vládce. (2) \taskmiddleearth}
+\newcommand{\theodencard}{ \,\n%
+    \Tthuule \Taara \TTacute \TTrightcurl \Tando \TTacute \Tnuumen \n\,\n%
+    \textbf{Překlad}: \theodenname \n%
+    \textbf{Frakce}: \theodenfaction \n%
+    \textbf{Aura}: \theodenaura \n%
+    \textbf{Schopnosti}: \theodenability \n%
+    \textbf{Úkoly}: \theodentask
+}
+
+\newcommand{\eomername}{Éomer}
+\newcommand{\eomerfaction}{\namemiddleearth}
+\newcommand{\eomeraura}{\blueaurabox}
+\newcommand{\eomerability}{{\abtraining}, {\abhuman}}
+\newcommand{\eomertask}{(1) \taskmiddleearth}
+\newcommand{\eomercard}{ \,\n%
+    \Taara \TTacute \TTrightcurl \Tmalta \TTacute \Toore \n\,\n%
+    \textbf{Překlad}: \eomername \n%
+    \textbf{Frakce}: \eomerfaction \n%
+    \textbf{Aura}: \eomeraura \n%
+    \textbf{Schopnosti}: \eomerability \n%
+    \textbf{Úkoly}: \eomertask
+}
+
+\newcommand{\eowynname}{Éowyn}
+\newcommand{\eowynfaction}{\namemiddleearth}
+\newcommand{\eowynaura}{\blueaurabox}
+\newcommand{\eowynability}{{\abhuman}}
+\newcommand{\eowyntask}{(1) \taskmiddleearth}
+\newcommand{\eowyncard}{ \,\n%
+    \Taara \TTacute \TTrightcurl \Tvilya \TTtwodotsbelow \Tnuumen \n\,\n%
+    \textbf{Překlad}: \eowynname \n%
+    \textbf{Frakce}: \eowynfaction \n%
+    \textbf{Aura}: \eowynaura \n%
+    \textbf{Schopnosti}: \eowynability \n%
+    \textbf{Úkoly}: \eowyntask
+}
+
+\newcommand{\bilboname}{Bilbo}
+\newcommand{\bilbofaction}{\namemiddleearth}
+\newcommand{\bilboaura}{\blueaurabox}
+\newcommand{\bilboability}{{\abhobit}}
+\newcommand{\bilbotask}{(1) \taskmiddleearth}
+\newcommand{\bilbocard}{ \,\n%
+    \Tumbar \TTdot \Tlambe \Tumbar \TTrightcurl \n\,\n%
+    \textbf{Překlad}: \bilboname \n%
+    \textbf{Frakce}: \bilbofaction \n%
+    \textbf{Aura}: \bilboaura \n%
+    \textbf{Schopnosti}: \bilboability \n%
+    \textbf{Úkoly}: \bilbotask
+}
+
+\newcommand{\frodoname}{Frodo}
+\newcommand{\frodofaction}{\namemiddleearth}
+\newcommand{\frodoaura}{\blueaurabox}
+\newcommand{\frodoability}{{\abhobit}}
+\newcommand{\frodotask}{(1) \taskmiddleearth (2) \textit{Prsten}.}
+\newcommand{\frodocard}{ \,\n%
+    \Tformen \Troomen \TTrightcurl \Tando \TTrightcurl \n\,\n%
+    \textbf{Překlad}: \frodoname \n%
+    \textbf{Frakce}: \frodofaction \n%
+    \textbf{Aura}: \frodoaura \n%
+    \textbf{Schopnosti}: \frodoability \n%
+    \textbf{Úkoly}: \frodotask
+}
+
+\newcommand{\samname}{Sam}
+\newcommand{\samfaction}{\namemiddleearth}
+\newcommand{\samaura}{\blueaurabox}
+\newcommand{\samability}{{\abhobit}}
+\newcommand{\samtask}{(1) \taskmiddleearth (2) Získat vlas od Galadriel. (3) \textit{Prsten}.}
+\newcommand{\samcard}{ \,\n%
+    \Tsilmenuquerna \TTthreedots \Tmalta \n\,\n%
+    \textbf{Překlad}: \samname \n%
+    \textbf{Frakce}: \samfaction \n%
+    \textbf{Aura}: \samaura \n%
+    \textbf{Schopnosti}: \samability \n%
+    \textbf{Úkoly}: \samtask
+}
+
+\newcommand{\pipinname}{Pipin}
+\newcommand{\pipinfaction}{\namemiddleearth}
+\newcommand{\pipinaura}{\blueaurabox}
+\newcommand{\pipinability}{{\abhobit}}
+\newcommand{\pipintask}{(1) \taskmiddleearth (2) \textit{Prsten}.}
+\newcommand{\pipincard}{ \,\n%
+    \Tparma \TTacute \Troomen \TTacute \Tanga \Troomen \TTdot \Tnuumen \n\,\n%
+    \textbf{Překlad}: \pipinname \n%
+    \textbf{Frakce}: \pipinfaction \n%
+    \textbf{Aura}: \pipinaura \n%
+    \textbf{Schopnosti}: \pipinability \n%
+    \textbf{Úkoly}: \pipintask
+}
+
+\newcommand{\merryname}{Smíšek}
+\newcommand{\merryfaction}{\namemiddleearth}
+\newcommand{\merryaura}{\blueaurabox}
+\newcommand{\merryability}{{\abhobit}}
+\newcommand{\merrytask}{(1) \taskmiddleearth (2) \textit{Prsten}.}
+\newcommand{\merrycard}{ \,\n%
+    \Tmalta \TTacute \Toore \Toore \TTtwodotsbelow \n\,\n%
+    \textbf{Překlad}: \merryname \n%
+    \textbf{Frakce}: \merryfaction \n%
+    \textbf{Aura}: \merryaura \n%
+    \textbf{Schopnosti}: \merryability \n%
+    \textbf{Úkoly}: \merrytask
+}
+
+\newcommand{\sauronname}{Sauron}
+\newcommand{\sauronfaction}{\namedarkarmy}
+\newcommand{\sauronaura}{\redaurabox}
+\newcommand{\sauronability}{{\abbats}, {\abhints}, {\abimmortal}, {\abtraining}}
+\newcommand{\saurontask}{(1) \taskdarkarmy \, (*) Saruman je váš tajný spojenec.}
+\newcommand{\sauroncard}{ \,\n%
+    \Tthuule \Tuure \TTthreedots \Troomen \TTrightcurl \Tnuumen \n\,\n%
+    \textbf{Překlad}: \sauronname \n%
+    \textbf{Frakce}: \sauronability \n%
+    \textbf{Aura}: \sauronaura \n%
+    \textbf{Schopnosti}: \sauronability \n%
+    \textbf{Úkoly}: \saurontask
+}
+
+\newcommand{\morduname}{Mordu}
+\newcommand{\mordufaction}{\namedarkarmy}
+\newcommand{\morduaura}{\redaurabox}
+\newcommand{\morduability}{{\abdrain}, {\abtransfer}}
+\newcommand{\mordutask}{(1) \taskdarkarmy}
+\newcommand{\morducard}{ \,\n%
+    \Tmalta \TTrightcurl \Tarda \TTleftcurl \n\,\n%
+    \textbf{Překlad}: \morduname \n%
+    \textbf{Frakce}: \mordufaction \n%
+    \textbf{Aura}: \morduaura \n%
+    \textbf{Schopnosti}: \morduability \n%
+    \textbf{Úkoly}: \mordutask
+}
+
+\newcommand{\witchkingname}{Lord Nazgûlů}
+\newcommand{\witchkingfaction}{\namedarkarmy}
+\newcommand{\witchkingaura}{\redaurabox}
+\newcommand{\witchkingability}{{\aborc}, {\abselfdefense}, {\abtraining}, {\magic \textbf{Citlivost na Prsten}}: Kdykoliv byl použit Jeden Prsten, dozvíš se kdy a kde.}
+\newcommand{\witchkingtask}{(1) \taskdarkarmy}
+\newcommand{\witchkingcard}{ \,\n%
+    \Ttelco \TTthreedots \Tanga \Tmalta \TTthreedots \Troomen \TTdot \Tnuumen  \Ts \Tnuumen \Tyanta \TTrightcurl \Ttinco \TTthreedots \Tcalma \TTleftcurl \Tnuumen \TTdot \Tanga \TTthreedots \Tsilme \n\,\n%
+    \textbf{Překlad}: \witchkingname \n%
+    \textbf{Frakce}: \witchkingfaction \n%
+    \textbf{Aura}: \witchkingaura \n%
+    \textbf{Schopnosti}: \witchkingability \n%
+    \textbf{Úkoly}: \witchkingtask
+}
+
+\newcommand{\nazgulname}{Nazgûl}
+\newcommand{\nazgulfaction}{\namedarkarmy}
+\newcommand{\nazgulaura}{\redaurabox}
+\newcommand{\nazgulability}{{\aborc}, {\abtraining}, {\magic \textbf{Citlivost na Prsten}}: Kdykoliv byl použit Jeden Prsten, dozvíš se kdy a kde.}
+\newcommand{\nazgultask}{(1) \taskdarkarmy}
+\newcommand{\nazgulcard}{ \,\n%
+    \Taara \TTleftcurl \Tlambe \Tyanta \TTthreedots \Troomen \TTdot \n\,\n%
+    \textbf{Překlad}: \nazgulname \n%
+    \textbf{Frakce}: \nazgulfaction \n%
+    \textbf{Aura}: \nazgulaura \n%
+    \textbf{Schopnosti}: \nazgulability \n%
+    \textbf{Úkoly}: \nazgultask
+}
+
+\newcommand{\azogname}{Azog}
+\newcommand{\azogfaction}{\namedarkarmy}
+\newcommand{\azogaura}{\redaurabox}
+\newcommand{\azogability}{{\aborc}, {\abtraining}}
+\newcommand{\azogtask}{(1) \taskdarkarmy (2) Zbavit se Thorina.}
+\newcommand{\azogcard}{ \,\n%
+    \Ttelco \TTthreedots \Tessenuquerna \TTrightcurl \Tanga \n\,\n%
+    \textbf{Překlad}: \azogname \n%
+    \textbf{Frakce}: \azogfaction \n%
+    \textbf{Aura}: \azogaura \n%
+    \textbf{Schopnosti}: \azogability \n%
+    \textbf{Úkoly}: \azogtask 
+}
+
+\newcommand{\uglukname}{Uglúk}
+\newcommand{\uglukfaction}{\namedarkarmy}
+\newcommand{\uglukaura}{\redaurabox}
+\newcommand{\uglukability}{{\aborc}, {\abtraining}}
+\newcommand{\ugluktask}{(1) \taskdarkarmy (2) \textit{Saruman}.}
+\newcommand{\uglukcard}{ \,\n%
+    \Ttelco \TTleftcurl \Tanga \Tlambe \Taara \TTleftcurl \Tcalma \n\,\n%
+    \textbf{Překlad}: \uglukname \n%
+    \textbf{Frakce}: \uglukfaction \n%
+    \textbf{Aura}: \uglukaura \n%
+    \textbf{Schopnosti}: \uglukability \n%
+    \textbf{Úkoly}: \ugluktask
+}
+
+\newcommand{\mauhurname}{Mauhúr}
+\newcommand{\mauhurfaction}{\namedarkarmy}
+\newcommand{\mauhuraura}{\redaurabox}
+\newcommand{\mauhurability}{{\aborc}, {\abtraining}}
+\newcommand{\mauhurtask}{(1) \taskdarkarmy (2) \textit{Saruman}.}
+\newcommand{\mauhurcard}{ \,\n%
+    \Tmalta \Tuure \TTthreedots \Taha \Taara \TTleftcurl \Toore \n\,\n%
+    \textbf{Překlad}: \mauhurname \n%
+    \textbf{Frakce}: \mauhurfaction \n%
+    \textbf{Aura}: \mauhuraura \n%
+    \textbf{Schopnosti}: \mauhurability \n%
+    \textbf{Úkoly}: \mauhurtask
+}
+
+\newcommand{\shagratname}{Shagrat}
+\newcommand{\shagratfaction}{\namedarkarmy}
+\newcommand{\shagrataura}{\redaurabox}
+\newcommand{\shagratability}{{\aborc}, {\abtraining}}
+\newcommand{\shagrattask}{(1) \taskdarkarmy}
+\newcommand{\shagratcard}{ \,\n%
+    \Tsilme \Taha \TTthreedots \Tanga \Troomen \TTthreedots \Ttinco \n\,\n%
+    \textbf{Překlad}: \shagratname \n%
+    \textbf{Frakce}: \shagratfaction \n%
+    \textbf{Aura}: \shagrataura \n%
+    \textbf{Schopnosti}: \shagratability \n%
+    \textbf{Úkoly}: \shagrattask
+}
+
+\newcommand{\gorbagname}{Gorbag}
+\newcommand{\gorbagfaction}{\namedarkarmy}
+\newcommand{\gorbagaura}{\redaurabox}
+\newcommand{\gorbagability}{{\aborc}, {\abdwarf}}
+\newcommand{\gorbagtask}{(1) \taskdarkarmy}
+\newcommand{\gorbagcard}{ \,\n%
+    \Tanga \TTrightcurl \Toore \Tumbar \TTthreedots \Tanga \n\,\n%
+    \textbf{Překlad}: \gorbagname \n%
+    \textbf{Frakce}: \gorbagfaction \n%
+    \textbf{Aura}: \gorbagaura \n%
+    \textbf{Schopnosti}: \gorbagability \n%
+    \textbf{Úkoly}: \gorbagtask
+}
+
+\newcommand{\grishnaghname}{Grishnákh}
+\newcommand{\grishnaghfaction}{\namedarkarmy}
+\newcommand{\grishnaghaura}{\redaurabox}
+\newcommand{\grishnaghability}{{\aborc}, {\abtraining}}
+\newcommand{\grishnaghtask}{(1) \taskdarkarmy}
+\newcommand{\grishnaghcard}{ \,\n%
+    \Tanga \Troomen \TTdot \Tsilme \Taha \Tnuumen \Taara \TTthreedots \Tcalma \Taha \n\,\n%
+    \textbf{Překlad}: \grishnaghname  \n%
+    \textbf{Frakce}: \grishnaghfaction \n%
+    \textbf{Aura}: \grishnaghaura \n%
+    \textbf{Schopnosti}: \grishnaghability \n%
+    \textbf{Úkoly}: \grishnaghtask
+}
+
+\newcommand{\shelobname}{Shelob}
+\newcommand{\shelobfaction}{\namedarkarmy}
+\newcommand{\shelobaura}{\redaurabox}
+\newcommand{\shelobability}{{\abpoison}, {\abtraining}}
+\newcommand{\shelobtask}{(1) \taskdarkarmy}
+\newcommand{\shelobcard}{ \,\n%
+    \Tsilme \Taha \TTacute \Tlambe \TTrightcurl \Tumbar \n\,\n%
+    \textbf{Překlad}: \shelobname \n%
+    \textbf{Frakce}: \shelobfaction \n%
+    \textbf{Aura}: \shelobaura \n%
+    \textbf{Schopnosti}: \shelobability \n%
+    \textbf{Úkoly}: \shelobtask
+}
+
+\newcommand{\grimaname}{Gríma}
+\newcommand{\grimafaction}{\namedarkarmy}
+\newcommand{\grimaaura}{\blueaurabox}
+\newcommand{\grimaability}{{\abhuman}}
+\newcommand{\grimatask}{(1) \taskdarkarmy}
+\newcommand{\grimacard}{ \,\n%
+    \Tanga \Troomen \Taara \TTdot \Tmalta \TTthreedots \n\,\n%
+    \textbf{Překlad}: \grimaname \n%
+    \textbf{Frakce}: \grimafaction \n%
+    \textbf{Aura}: \grimaaura \n%
+    \textbf{Schopnosti}: \grimaability \n%
+    \textbf{Úkoly}: \grimatask
+}
+
+\newcommand{\sarumanname}{Saruman}
+\newcommand{\sarumanfaction}{\namedarkarmy}
+\newcommand{\sarumanaura}{\grayaurabox}
+\newcommand{\sarumanability}{{\abdetect}, {\abconvert}, {\abhints}}
+\newcommand{\sarumantask}{(1) \taskdarkarmy (2) \textit{Použít Jeden Prsten dříve než Sauron.}}
+\newcommand{\sarumancard}{ \,\n%
+    \Tsilmenuquerna \TTthreedots \Troomen \TTleftcurl \Tmalta \TTthreedots \Tnuumen \n\,\n%
+    \textbf{Překlad}: \sarumanname \n%
+    \textbf{Frakce}: \sarumanfaction \n%
+    \textbf{Aura}: \sarumanaura \n%
+    \textbf{Schopnosti}: \sarumanability \n%
+    \textbf{Úkoly}: \sarumantask
+}
+
+\newcommand{\radagastname}{Radagast}
+\newcommand{\radagastfaction}{\nameneutral}
+\newcommand{\radagastaura}{\grayaurabox}
+\newcommand{\radagastability}{{\abdetect}, {\abalchemy}, {\abhints}}
+\newcommand{\radagasttask}{Zatím žádné.}
+\newcommand{\radagastcard}{ \,\n%
+    \Troomen \TTthreedots \Tando \TTthreedots \Tanga \TTthreedots \Tsilme \Ttinco \n\,\n%
+    \textbf{Překlad}: \radagastname \n%
+    \textbf{Frakce}: \radagastfaction \n%
+    \textbf{Aura}: \radagastaura \n%
+    \textbf{Schopnosti}: \radagastability \n%
+    \textbf{Úkoly}: \radagasttask
+}
+
+\newcommand{\gollumname}{Gollum}
+\newcommand{\gollumfaction}{\nameneutral}
+\newcommand{\gollumaura}{\grayaurabox}
+\newcommand{\gollumability}{{\abhobit}}
+\newcommand{\gollumtask}{Udržet si Jeden Prsten do konce hry.}
+\newcommand{\gollumcard}{ \,\n%
+    \Tanga \TTrightcurl \Tlambe \TTdoubler \TTleftcurl \Tmalta \n\,\n%
+    \textbf{Překlad}: \gollumname \n%
+    \textbf{Frakce}: \gollumfaction \n%
+    \textbf{Aura}: \gollumaura \n%
+    \textbf{Schopnosti}: \gollumability \n%
+    \textbf{Úkoly}: \gollumtask
+}
+
+\newcommand{\tomname}{Tom Bombadil}
+\newcommand{\tomfaction}{\nameneutral}
+\newcommand{\tomaura}{\grayaurabox}
+\newcommand{\tomability}{{\abimmortal}}
+\newcommand{\tomtask}{(1) Každý večer zpívat a tančit. (2) \textit{Zemřít a pak být oživen.}}
+\newcommand{\tomcard}{ \,\n%
+    \Ttinco \TTrightcurl \Tmalta  \Ts \Tumbar \TTrightcurl \Tumbar \TTthreedots \Tando \TTdot \Tlambe \n\,\n%
+    \textbf{Překlad}: \tomname \n%
+    \textbf{Frakce}: \tomfaction \n%
+    \textbf{Aura}: \tomaura \n%
+    \textbf{Schopnosti}: \tomability \n%
+    \textbf{Úkoly}: \tomtask
+}
+
+\newcommand{\humanname}{Člověk}
+\newcommand{\humanfaction}{\namemiddleearth}
+\newcommand{\humanaura}{\blueaurabox}
+\newcommand{\humanability}{{\abhuman}}
+\newcommand{\humantask}{(1) \taskmiddleearth}
+\newcommand{\humancard}{ \,\n%
+    \Thyarmen \TTleftcurl \Tmalta \TTthreedots \Tnuumen \n\,\n%
+    \textbf{Překlad}: \humanname \n%
+    \textbf{Frakce}: \humanfaction \n%
+    \textbf{Aura}: \humanaura \n%
+    \textbf{Schopnosti}: \humanability \n%
+    \textbf{Úkoly}: \humantask
+}
+
+\newcommand{\elfname}{Elf}
+\newcommand{\elffaction}{\namemiddleearth}
+\newcommand{\elfaura}{\blueaurabox}
+\newcommand{\elfability}{{\abelf}}
+\newcommand{\elftask}{(1) \taskmiddleearth}
+\newcommand{\elfcard}{ \,\n%
+    \Ttelco \TTacute \Tlambe \Tformen \n\,\n%
+    \textbf{Překlad}: \elfname \n%
+    \textbf{Frakce}: \elffaction \n%
+    \textbf{Aura}: \elfaura \n%
+    \textbf{Schopnosti}: \elfability \n%
+    \textbf{Úkoly}: \elftask
+}
+
+\newcommand{\dwarfname}{Trpaslík}
+\newcommand{\dwarffaction}{\namemiddleearth}
+\newcommand{\dwarfaura}{\blueaurabox}
+\newcommand{\dwarfability}{{\abdwarf}}
+\newcommand{\dwarftask}{(1) \taskmiddleearth}
+\newcommand{\dwarfcard}{ \,\n%
+    \Tando \Tvilya \TTthreedots \Toore \Tformen \n\,\n%
+    \textbf{Překlad}: \dwarfname \n%
+    \textbf{Frakce}: \dwarffaction \n%
+    \textbf{Aura}: \dwarfaura \n%
+    \textbf{Schopnosti}: \dwarfability \n%
+    \textbf{Úkoly}: \dwarftask
+}
+
+\newcommand{\hobitname}{Hobit}
+\newcommand{\hobitfaction}{\namemiddleearth}
+\newcommand{\hobitaura}{\blueaurabox}
+\newcommand{\hobitability}{{\abhobit}}
+\newcommand{\hobittask}{(1) \taskmiddleearth}
+\newcommand{\hobitcard}{ \,\n%
+    \Thyarmen \TTrightcurl \Tumbar \TTdot \Ttinco  \n\,\n%
+    \textbf{Překlad}: \hobitname \n%
+    \textbf{Frakce}: \hobitfaction \n%
+    \textbf{Aura}: \hobitaura \n%
+    \textbf{Schopnosti}: \hobitability \n%
+    \textbf{Úkoly}: \hobittask
+}
+
+\newcommand{\orcname}{Skřet}
+\newcommand{\orcfaction}{\namedarkarmy}
+\newcommand{\orcaura}{\redaurabox}
+\newcommand{\orcability}{{\aborc}}
+\newcommand{\orctask}{(1) \taskdarkarmy}
+\newcommand{\orccard}{ \,\n%
+    \Ttelco \TTrightcurl \Toore \Tcalma \n\,\n%
+    \textbf{Překlad}: \orcname \n%
+    \textbf{Frakce}: \orcfaction \n%
+    \textbf{Aura}: \orcaura \n%
+    \textbf{Schopnosti}: \orcability \n%
+    \textbf{Úkoly}: \orctask
+}
+
+\newcommand{\spidername}{Pavouk}
+\newcommand{\spiderfaction}{\namedarkarmy}
+\newcommand{\spideraura}{\redaurabox}
+\newcommand{\spiderability}{{\abpoison}}
+\newcommand{\spidertask}{(1) \taskdarkarmy}
+\newcommand{\spidercard}{ \,\n%
+    \Tsilme \Tparma \TTdot \Tando \TTacute \Toore \n\,\n%
+    \textbf{Překlad}: \spidername \n%
+    \textbf{Frakce}: \spiderfaction \n%
+    \textbf{Aura}: \spideraura \n%
+    \textbf{Schopnosti}: \spiderability \n%
+    \textbf{Úkoly}: \spidertask
+}
+
+% Next time, put this to an array and generate this with for-loop printf :-)
+% Vim macros and addons are too short for this.
+
+\newgeometry{landscape=false,margin=0.2in}
+% Don't know why, portrait didn't work.
+
+\begin{longtable}{ |m{2.4cm}|m{2cm}||>{\tiny}m{1.7cm}|>{\tiny}m{0.5cm}|>{\tiny}m{8cm}|>{\tiny}m{8cm}| }
+{\normalsize \textbf{Postava}} & {\normalsize  \textbf{Hráč}} & {\normalsize  \textbf{Frakce}} & {\normalsize  \textbf{Aura}} & {\normalsize  \textbf{Schopnosti}} & {\normalsize  \textbf{Úkoly}} \\ \hline
+\elrondname & & \elrondfaction & \elrondaura & \elrondability & \elrondtask \\ \hline
+\gandalfname & & \gandalffaction & \gandalfaura & \gandalfability & \gandalftask \\ \hline
+\galadrielname & & \galadrielfaction & \galadrielaura & \galadrielability & \galadrieltask \\ \hline
+\celebornname & & \celebornfaction & \celebornaura & \celebornability & \celeborntask \\ \hline
+\aragornname & & \aragornfaction & \aragornaura & \aragornability & \aragorntask \\ \hline
+\arwenname & & \arwenfaction & \arwenaura & \arwenability & \arwentask \\ \hline
+\glorfindelname & & \glorfindelfaction & \glorfindelaura & \glorfindelability & \glorfindeltask \\ \hline
+\legolasname & & \legolasfaction & \legolasaura & \legolasability & \legolastask \\ \hline
+\thorinname & & \thorinfaction & \thorinaura & \thorinability & \thorintask \\ \hline
+\balinname & & \balinfaction & \balinaura & \balinability & \balintask \\ \hline
+\gloinname & & \gloinfaction & \gloinaura & \gloinability & \glointask \\ \hline
+\gimliname & & \gimlifaction & \gimliaura & \gimliability & \gimlitask \\ \hline
+\denethorname & & \denethorfaction & \denethoraura & \denethorability & \denethortask \\ \hline
+\boromirname & & \boromirfaction & \boromiraura & \boromirability & \boromirtask \\ \hline
+\faramirname & & \faramirfaction & \faramiraura & \faramirability & \faramirtask \\ \hline
+\theodenname & & \theodenfaction & \theodenaura & \theodenability & \theodentask \\ \hline
+\eomername & & \eomerfaction & \eomeraura & \eomerability & \eomertask \\ \hline
+\eowynname & & \eowynfaction & \eowynaura & \eowynability & \eowyntask \\ \hline
+\bilboname & & \bilbofaction & \bilboaura & \bilboability & \bilbotask \\ \hline
+\frodoname & & \frodofaction & \frodoaura & \frodoability & \frodotask \\ \hline
+\samname & & \samfaction & \samaura & \samability & \samtask \\ \hline
+\pipinname & & \pipinfaction & \pipinaura & \pipinability & \pipintask \\ \hline
+\merryname & & \merryfaction & \merryaura & \merryability & \merrytask \\ \hline
+\humanname & & \humanfaction & \humanaura & \humanability & \humantask \\ \hline
+\humanname & & \humanfaction & \humanaura & \humanability & \humantask \\ \hline
+\humanname & & \humanfaction & \humanaura & \humanability & \humantask \\ \hline
+\humanname & & \humanfaction & \humanaura & \humanability & \humantask \\ \hline
+\humanname & & \humanfaction & \humanaura & \humanability & \humantask \\ \hline
+\elfname & & \elffaction & \elfaura & \elfability & \elftask \\ \hline
+\elfname & & \elffaction & \elfaura & \elfability & \elftask \\ \hline
+\elfname & & \elffaction & \elfaura & \elfability & \elftask \\ \hline
+\elfname & & \elffaction & \elfaura & \elfability & \elftask \\ \hline
+\elfname & & \elffaction & \elfaura & \elfability & \elftask \\ \hline
+\dwarfname & & \dwarffaction & \dwarfaura & \dwarfability & \dwarftask \\ \hline
+\dwarfname & & \dwarffaction & \dwarfaura & \dwarfability & \dwarftask \\ \hline
+\dwarfname & & \dwarffaction & \dwarfaura & \dwarfability & \dwarftask \\ \hline
+\hobitname & & \hobitfaction & \hobitaura & \hobitability & \hobittask \\ \hline
+\hobitname & & \hobitfaction & \hobitaura & \hobitability & \hobittask \\ \hline
+\radagastname & & \radagastfaction & \radagastaura & \radagastability & \radagasttask \\ \hline
+\gollumname & & \gollumfaction & \gollumaura & \gollumability & \gollumtask \\ \hline
+\tomname & & \tomfaction & \tomaura & \tomability & \tomtask \\ \hline
+\sauronname & & \sauronfaction & \sauronaura & \sauronability & \saurontask \\ \hline
+\morduname & & \mordufaction & \morduaura & \morduability & \mordutask \\ \hline
+\sarumanname & & \sarumanfaction & \sarumanaura & \sarumanability & \sarumantask \\ \hline
+\uglukname & & \uglukfaction & \uglukaura & \uglukability & \ugluktask \\ \hline
+\mauhurname & & \mauhurfaction & \mauhuraura & \mauhurability & \mauhurtask \\ \hline
+\witchkingname & & \witchkingfaction & \witchkingaura & \witchkingability & \witchkingtask \\ \hline
+\nazgulname & & \nazgulfaction & \nazgulaura & \nazgulability & \nazgultask \\ \hline
+\nazgulname & & \nazgulfaction & \nazgulaura & \nazgulability & \nazgultask \\ \hline
+\nazgulname & & \nazgulfaction & \nazgulaura & \nazgulability & \nazgultask \\ \hline
+\nazgulname & & \nazgulfaction & \nazgulaura & \nazgulability & \nazgultask \\ \hline
+\nazgulname & & \nazgulfaction & \nazgulaura & \nazgulability & \nazgultask \\ \hline
+\nazgulname & & \nazgulfaction & \nazgulaura & \nazgulability & \nazgultask \\ \hline
+\nazgulname & & \nazgulfaction & \nazgulaura & \nazgulability & \nazgultask \\ \hline
+\nazgulname & & \nazgulfaction & \nazgulaura & \nazgulability & \nazgultask \\ \hline
+\azogname & & \azogfaction & \azogaura & \azogability & \azogtask \\ \hline
+\shagratname & & \shagratfaction & \shagrataura & \shagratability & \shagrattask \\ \hline
+\gorbagname & & \gorbagfaction & \gorbagaura & \gorbagability & \gorbagtask \\ \hline
+\grishnaghname & & \grishnaghfaction & \grishnaghaura & \grishnaghability & \grishnaghtask \\ \hline
+\shelobname & & \shelobfaction & \shelobaura & \shelobability & \shelobtask \\ \hline
+\grimaname & & \grimafaction & \grimaaura & \grimaability & \grimatask \\ \hline
+\orcname & & \orcfaction & \orcaura & \orcability & \orctask \\ \hline
+\orcname & & \orcfaction & \orcaura & \orcability & \orctask \\ \hline
+\orcname & & \orcfaction & \orcaura & \orcability & \orctask \\ \hline
+\orcname & & \orcfaction & \orcaura & \orcability & \orctask \\ \hline
+\orcname & & \orcfaction & \orcaura & \orcability & \orctask \\ \hline
+\orcname & & \orcfaction & \orcaura & \orcability & \orctask \\ \hline
+\spidername & & \spiderfaction & \spideraura & \spiderability & \spidertask \\ \hline
+\spidername & & \spiderfaction & \spideraura & \spiderability & \spidertask \\ \hline
+\spidername & & \spiderfaction & \spideraura & \spiderability & \spidertask \\ \hline
+\spidername & & \spiderfaction & \spideraura & \spiderability & \spidertask \\ \hline
+\spidername & & \spiderfaction & \spideraura & \spiderability & \spidertask \\ \hline
+\spidername & & \spiderfaction & \spideraura & \spiderability & \spidertask \\ \hline
+\end{longtable}
+
+\restoregeometry
+
+\newpage
+
+\newcommand{\cardwidth}{4.4cm}
+\newcommand{\cardheight}{4.2cm}
+\begin{longtable}{ |>{\footnotesize}p{\cardwidth}|>{\footnotesize}p{\cardwidth}|>{\footnotesize}p{\cardwidth}|>{\footnotesize}p{\cardwidth}|>{\footnotesize}p{\cardwidth}|}
+    \hline
+    \elrondcard & \gandalfcard & \galadrielcard & \celeborncard & \aragorncard \\[\cardheight]
+    \hline
+    \arwencard & \glorfindelcard & \legolascard & \thorincard & \balincard \\[\cardheight]
+    \hline
+    \gloincard & \gimlicard & \denethorcard & \boromircard & \faramircard \\[\cardheight]
+    \hline
+    \theodencard & \eomercard & \eowyncard & \bilbocard & \frodocard \\[\cardheight]
+    \hline
+    \samcard & \pipincard & \merrycard & \sauroncard & \morducard \\[\cardheight]
+    \hline
+    \witchkingcard & \nazgulcard & \nazgulcard & \nazgulcard & \nazgulcard \\[\cardheight]
+    \hline
+    \nazgulcard & \nazgulcard & \nazgulcard & \nazgulcard & \azogcard \\[\cardheight]
+    \hline
+    \uglukcard & \mauhurcard &  \shagratcard & \gorbagcard & \grishnaghcard  \\[\cardheight]
+    \hline
+    \shelobcard & \grimacard & \sarumancard & \radagastcard & \gollumcard \\[\cardheight]
+    \hline
+    \tomcard & \humancard & \humancard & \humancard & \humancard \\[\cardheight]
+    \hline
+    \humancard & \humancard & \elfcard & \elfcard & \elfcard \\[\cardheight]
+    \hline
+    \elfcard & \elfcard & \elfcard & \dwarfcard & \dwarfcard \\[\cardheight]
+    \hline
+    \dwarfcard & \hobitcard & \hobitcard & \hobitcard & \orccard \\[\cardheight]
+    \hline
+    \orccard & \orccard & \orccard & \orccard & \orccard \\[\cardheight]
+    \hline
+    \spidercard & \spidercard & \spidercard & \spidercard & \spidercard \\[\cardheight]
+    \hline
+    \spidercard & \spidercard & \spidercard & \spidercard & \spidercard \\[\cardheight]
+    \hline
+\end{longtable}
+
+
+% ITEM CARDS
+% (They describe real items)
+
+\newcommand{\daggeritem}{ \,\n%
+    \Tando \TTthreedots \Tanga \Tanga \TTacute \Toore \n\,\n%
+    \textbf{Dýka} \n%
+    Umožňuje okamžitě zavraždit oběť (předmětem).
+    K zavraždění se musí vrah oběti dotknout.
+    Oběť okamžitě umírá.
+    Pokud má oběť schopnost {\abselfdefense} a vrah nemá schopnost {\abimmortal}, účinek této akce se odvrací na vraha.
+    Pokud má obět i vrah schopnost {\abselfdefense}, vrah zavraždí oběť.
+}
+
+\newcommand{\gunitem}{ \,\n%
+    \Tanga \TTleftcurl \Tnuumen \n\,\n%
+    \textbf{Pistole} \n%
+    Umožňuje okamžitě zavraždit oběť (předmětem).
+    K zavraždění musí vrah zamířit pistolí na oběť a úspěšně vystřelit z pistole.
+    Schopnost {\abselfdefense} neodvrací účinek vraždy pistolí.
+}
+
+\newcommand{\potionitem}{ \,\n%
+    \Tparma \TTrightcurl \Ttinco \TTdot \Ttelco \TTrightcurl \Tnuumen \n\,\n%
+    \textbf{Lektvar} \n%
+    Neznámé účinky.
+    Pokud chceš použít tento lektvar, vypij ho.
+    Pro efekt lektvaru se okažitě zeptej \albert.
+    Radagast by možná mohl vědět, co tento lektvar dovede.
+}
+
+\newcommand{\morgulitem}{ \,\n%
+    \Tmalta \TTrightcurl \Toore \Tanga \TTleftcurl \Tlambe  \Ts \Tando \TTthreedots \Tanga \Tanga \TTacute \Toore \n\,\n%
+    \textbf{Morgulská dýka} \n%
+    \tiny
+    Umožňuje přeměnit oběť na Nazgûla nebo zavraždit oběť (předmětem).
+    K použití se musí vrah oběti dotknout.
+    Úspěšné použití této dýky (k vraždě i přeměně) se započítává jako jedna vražda vrahovi.
+    \n%
+    {\atck \textbf{Vražda}}:
+    Oběť okamžitě umírá.
+    Pokud má oběť schopnost {\abselfdefense} a vrah nemá schopnost {\abimmortal}, účinek této akce se odvrací na vraha.
+    Pokud má obět i vrah schopnost {\abselfdefense}, vrah zavraždí oběť.
+    \n%
+    {\magic \textbf{Přeměna}}:
+    Přeměnit lze pouze ty hráče, jejichž postava nemá fialovou schopnost nebo schopnost {\abselfdefense}.
+    Po použití schopnosti je oběť paralyzována na 15 minut.
+    Do té doby lze účinek této schopnosti zvrátit schopností {\abcure}.
+    Přeměnu oznam \albert.
+}
+
+\newcommand{\itemringinscriptsize}{0.7}
+\newcommand{\oneringinscription}{
+\tengwarannataritalic \tengmag{\itemringinscriptsize}
+\tengwa{130}
+\Textendedcalma\TTthreedots\Tnuumen\Tessenuquerna\TTthreedots\Tungwe\Tando\Toore\TTrightcurl\Tumbar\Ttinco\TTthreedots\Tlambe\TTrightcurl\Tquesse\TTrightcurl\Tromanperiod\Ts\Textendedcalma\TTthreedots\Tnuumen\Tessenuquerna\TTthreedots\Tungwe\Tungwe\Tumbar\TTnasalizer\TTdot\Ttinco\TTthreedots\Tlambe\TTrightcurl
+\tengwa{130} \n
+\tengwarannataritalic \tengmag{\itemringinscriptsize}\Textendedcalma\TTthreedots\Tnuumen\Tessenuquerna\TTthreedots\Tungwe\Tthuule\Troomen\Tquesse\TTthreedots\Ttinco\TTthreedots\Tlambe\TTrightcurl\Tquesse\TTrightcurl\Tromanperiod\Ts\Textendedungwe\TTthreedots\Tumbar\Toore\TTrightcurl\Tesse\Tkern{-0.2}\Tmalta\TTrightcurl\Textendedcalma\TTdot\Ttelco\TTdot\Tquesse\Troomen\Tparma\TTnasalizer\TTdot\Ttinco\TTthreedots\Tlambe\TTrightcurl
+}
+\newcommand{\oneringitem}{ \,\n%
+     {\color{purple} \Tmalta \TTdot \Tnuumen \TTacute  \Ts \Tcalma \TTrightcurl \Toore \Tmalta \TTthreedots} \n\,\n%
+    {\color{purple}\textit{\textbf{JEDEN PRSTEN}}} \n%
+    \tiny
+    Mocný prsten se zlatavým zábleskem.
+    Použití může dát nesmrtelnost jeho uživateli nebo také nemusí udělat nic.
+    Pokud Prsten vhodíš do ohně nebo ho necháš prosvítit sluncem, jemně z něho vysvítává toto:
+    \n%
+    {\color{gray}\oneringinscription}
+    \n%
+    \tiny
+    Použití okamžitě oznam \albert.
+    Pokud byl Prsten nasazen před závažnou událostí (např. před vraždou nositele), počkejte na výsledek od \albert.
+    \textbf{Prsten nelze nikam schovat nebo zahodit.}
+    Prsten je možné kdykoli předat jinému hráči.
+}
+
+\newcommand{\fakeringitem}{ \,\n%
+     {\color{purple} \Tmalta \TTdot \Tnuumen \TTacute  \Ts \Tcalma \TTrightcurl \Toore \Tmalta \TTthreedots} \n\,\n%
+    {\color{purple}\textit{\textbf{JEDEN PRSTEN}}} \n%
+    \scriptsize
+    Mocný prsten se zlatavým zábleskem.
+    Použití může dát nesmrtelnost jeho uživateli nebo také nemusí udělat nic.
+    \n%
+    Použití okamžitě oznam \albert.
+    Pokud byl Prsten nasazen před závažnou událostí (např. před vraždou nositele), počkejte na výsledek od \albert.
+    \textbf{Prsten nelze nikam schovat nebo zahodit.}
+    Prsten je možné kdykoli předat jinému hráči.
+}
+
+\newcommand{\hintsringitem}{ \,\n%
+     {\color{blue} \Tnuumen \TTacute \Tnuumen \TTtwodotsbelow \TTthreedots} \n\,\n%
+    {\color{blue}\textbf{Nenya -- Prsten Vody}} \n%
+    Nositel tohoto prstene je informován o veškerých nepřímých efektech vztahující se k jeho postavě.
+    Umožňuje jednorázové použití schopnosti {\abhints}.
+    K použití je potřeba mít Kámen moci.
+    Použití oznam \albert.
+    \textbf{Prsten nelze nikam schovat nebo zahodit.}
+    Prsten je možné kdykoli předat jinému hráči.
+}
+
+\newcommand{\valorringitem}{ \,\n%
+    {\color{red} \Tnuumen \TTthreedots \Toore \TTtwodotsbelow \TTthreedots} \n\,\n%
+    {\color{red}\textbf{Narya -- Prsten Ohně}} \n%
+    Kdykoli má hráč nasazený tento prsten, má schopnosti {\abtraining} a {\abselfdefense}.
+    \textbf{Prsten nelze nikam schovat nebo zahodit.}
+    Prsten je možné kdykoli předat jinému hráči.
+}
+
+\newcommand{\ressurectsringitem}{ \,\n%
+     {\color{brown} \Tvala \TTdot \Tlambe \TTtwodotsbelow \TTthreedots} \n\,\n%
+    {\color{brown}\textbf{Vilya -- Prsten Vzduchu}} \n%
+    Umožňuje jednorázové použití schopností {\abcure} nebo {\abresurrect}.
+    K použití je potřeba mít Kámen moci.
+    Použití oznam \albert.
+    \textbf{Prsten nelze nikam schovat nebo zahodit.}
+    Prsten je možné kdykoli předat jinému hráči.
+}
+
+\newcommand{\narsilpartitem}{ \,\n%
+    \Tnuumen \TTthreedots \Toore \Tsilmenuquerna \TTdot \Tlambe \n\,\n%
+    \textbf{Část Narsilu} \n%
+    Část slavného meče.
+    Zbraň je možné společně s druhou částí ukovat dohromady.
+    Ke spojení je třeba zapojení hráčů, kteří mají společně schopnosti {\abelf} a {\abdwarf}.
+    Pro spojení obou částí dojdi za \albert.
+}
+
+\newcommand{\narsilitem}{ \,\n%
+     {\color{teal}\Ttelco \TTthreedots \Tando \Taara \TTleftcurl \Troomen \TTdot \Tlambe} \n\,\n%
+    {\color{teal}\textbf{Andúril}} \n%
+    Umožňuje okamžitě zavraždit \textbf{až 3 oběťi} (předmětem) na jednom místě.
+    K zavraždění se musí vrah obětí dotknout.
+    Oběťi okamžitě umírají.
+    Pokud má oběť schopnost {\abselfdefense} a vrah nemá schopnost {\abimmortal}, účinek této akce se odvrací na vraha.
+    Pokud má obět i vrah schopnost {\abselfdefense}, vrah zavraždí oběť.
+    Zavraždění obětí na jednom místě se započítává jako jeden pokus o vraždu.
+}
+
+\newcommand{\itemwidth}{4.4cm}
+\newcommand{\itemheight}{5cm}
+\begin{longtable}{ |>{\footnotesize}p{\itemwidth}|>{\footnotesize}p{\itemwidth}|>{\footnotesize}p{\itemwidth}|>{\footnotesize}p{\itemwidth}|>{\footnotesize}p{\itemwidth}|}
+    \hline
+    \daggeritem & \daggeritem & \daggeritem & \daggeritem & \daggeritem \\[\itemheight]
+    \hline
+    \daggeritem & \daggeritem & \daggeritem & \daggeritem & \daggeritem \\[\itemheight]
+    \hline
+    \morgulitem & \morgulitem & \narsilpartitem & \narsilpartitem & \narsilitem \\[\itemheight]
+    \hline
+    \gunitem & \gunitem & \gunitem & \gunitem & \gunitem \\[\itemheight]
+    \hline
+    \potionitem & \potionitem & \potionitem & \potionitem & \potionitem \\[\itemheight]
+    \hline
+    \oneringitem & \fakeringitem & \hintsringitem & \ressurectsringitem & \valorringitem \\[\itemheight]
+    \hline
+\end{longtable}
+
+\end{document}
