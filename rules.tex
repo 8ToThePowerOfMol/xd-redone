@@ -1,0 +1,387 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\geometry{margin=0.8in} % for example, change the margins to 2 inches all round
+\geometry{top=1.2in}
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+
+%\usepackage{lastpage} % Required to determine the last page for the footer
+%\usepackage{extramarks} % Required for headers and footers
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{\Tanga \TTthreedots \Tmalta \TTacute  \Ts \Troomen \TTleftcurl \Tlambe \TTacute \Tsilme}
+\chead{}
+\rhead{\Tcalma \Tlefthook \Tando  \Tanga \TTthreedots \Tmalta \TTacute}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+%++ Font
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{0pt}
+\usepackage{lmodern}
+% \usepackage[utf8]{inputenc}
+
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%++ More section levels
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%++ List reduced spaces
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=3pt,parsep=1pt,partopsep=0pt}
+\setenumerate{noitemsep,topsep=3pt,parsep=1pt,partopsep=0pt}
+
+%++ Paragraphs indentation settings
+\setlength{\parindent}{0ex}
+
+%++ Tengwar letters
+\usepackage[all]{tengwarscript}
+\newcommand{\tengfont}{\tengwarformal}
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+\renewcommand{\contentsname}{Obsah~~\Tcalma \TTrightcurl \Tanto \TTacute \Tanto \Tsilme}
+
+%++ Font color
+\usepackage[table]{xcolor}
+
+%++ Albert icon
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\newcommand{\albert}{\Nursey[][yellow][blue][red]}
+
+\newcommand{\n}{\newline}
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{
+    \tengwarannatarbolditalic \tengmag{4} \Tcalma \Tlefthook \Tando  \Tanga \TTthreedots \Tmalta \TTacute \\
+    \textbf{XD--Hra} 
+}
+\author{
+    \textbf{Pravidla hry} \\
+    \tengwarannataritalic \tengmag{3.5} \Tanga \TTthreedots \Tmalta \TTacute  \Ts \Troomen \TTleftcurl \Tlambe \TTacute \Tsilme
+}
+\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Úvod}
+
+\textit{XD--hra} se hraje v obrovských skupinách na pozadí normálního programu.
+Její princip je podobný hrám jako jsou Městečko Palermo, AmongUs nebo Werewolf.
+Hlavním rozdílem je její délka -- toto není hra na hoďku nebo na jeden večer.
+Doba trvání jsou dny, proto \textit{XD}.
+
+Hra se hraje pouze v táboře, každý den od budíčku po večerku.
+
+V pravidlech se občas objeví \albert. To znamená zeptat/říct moderátorovi (Albert).
+
+\section{Hráči a postavy}
+
+\subsection{Cíl hry}
+
+Každý hráč má svůj vlastní cíl v rámci hry, a to jsou:
+\begin{itemize}
+    \item Nezemřít.
+    \item Pokud zemřel, pak být oživen.
+    \item Splnit všechny své úkoly, které dostane jako začínající postava.
+\end{itemize}
+
+\subsection{Akce}
+
+K tomu, aby hráč dosáhl svého cíle hry, může provádět tyto akce:
+\begin{itemize}
+    \item Hlasovat pro možného vraha před soudem.
+    \item Zavraždit jiného hráče (potřeba mít předmět).
+    \item Použít své schopnosti dané vlastní postavou.
+    \item Použít nalezený předmět.
+\end{itemize}
+
+Podrobnější pravidla pro vykonávání akcí jsou popsána v dalších sekcích.
+
+\subsection{Postavy}
+
+Každý hráč je alespoň jednou postavou ve hře.
+Postavou může být jmenovitě postava, nebo jen obyčejný příslušník rasy (např. hobit).
+Každá postava a rasa má své speciální schopnosti, frakci a úkoly.
+Některé postavy jsou příslušníkem rasy a dědí tak další schopnosti.
+
+\subsection{Vládci}
+
+Vládci jsou hráči, kteří o sobě dohromady od začátku hry vědí a mění některá pravidla hry.
+Pokud jsou naživu, od běžných hráčů mohou navíc:
+\begin{itemize}
+    \item Tvořit, měnit, rušit nebo vyhlašovat \textbf{měnitelná pravidla}.
+    \item Jmenovat svého nástupce, pokud vládce zemře. Toto musí (pokud je živý) oznámit \albert pro pozdější ověření.
+\end{itemize}
+
+\section{Události}
+
+Každý den nastává mnoho událostí, které mohou spouštět jednotliví hráči prostřednictvím schopností jejich postav nebo použitím nějakého předmětu.  
+
+\subsection{Smrt}
+
+Jestliže chce hráč zavraždit jiného, může to udělat pomocí schopnosti nebo předmětem:
+\begin{enumerate}
+\item \textbf{Schopností}:
+	\begin{enumerate} 
+		\item Řekne, co je za postavu (může ukázat kartičku se svou schopností).
+        \item Vymyslí způsob smrti adekvátní jeho charakteru (např. Pavouk \& otrávení: malá dírka na zádech,\dots).
+        \item Pokud jeho schopnost vyžaduje nějakou speciální akci navíc, musí ji hned provést.
+	\end{enumerate}
+\item \textbf{Předmětem}:
+	\begin{enumerate}
+        \item Pokud není uvedeno jinak, hráč může zavraždit jiného hráče \textbf{pouze jedenkrát za hru}, bez ohledu na předmět, který k tomu používá.
+        \item Vrah se jako první dotkne oběti.
+		\item Vrah ukáže oběti předmět.
+		\item Vymyslí způsob smrti související s předmětem.
+	\end{enumerate}
+\end{enumerate}
+
+Po nalezení mrtvého může nálezce:
+\begin{itemize}
+	\item \textbf{Oznámit jeho smrt} svému okolí; mrtvý potom řekne, kdy a jak byl zabit; na nástupu bude následovat soud.
+	\item \textbf{Oživit mrtvého} (pokud může) tak, že se to ostatní nedozví.
+\end{itemize}
+
+Pokud byla smrt oznámena, brzy se objeví obálka na hlasovací tabuli, kde je možné pro ostatní živé hráče vhazovat své hlasy.
+
+Poznámky:
+\begin{itemize}
+	\item Za nálezce se může vydávat i vrah zavražděného.
+	\item Zavražděný zůstane na jeho místě činu do 15 minut nebo do zaznění nástupu, potom to musí co nejdříve oznámit.
+	\item Mrtvý \textbf{nesmí prozradit vůbec žádné informace, které se dozvěděl jako živý}, \textbf{\textcolor{red}{nesmí nikomu ani trochu napovědět ani podat žádný náznak o dění ve hře}}, jinak pro něj hra doživotně skončí.
+\end{itemize}
+
+
+\subsection{Soud \& Upálení}
+
+Soud je hlavním procesem tábora za účelem najít pachatele vraždy a toho upálit.
+Soudy mají pravidla \textbf{pevná} a \textbf{změnitelná}.
+Změnitelná pravidla mohou měnit a vyhlašovat vládci.
+
+\textbf{Pevná pravidla}:
+\begin{itemize}
+    \item Za každého zavražděného lze odhlasovat a upálit nejvýše jeden živý hráč.
+    \item Soud probíhá pouze jednou za den, po večeři.
+    \item V táboře je tabule, kde se objeví hlasovací zařízení se jménem každého zemřelého. Lze využít \albert k spravedlivému sčítání hlasů. Hlasovací zařízení nelze nijak sabotovat a zneužívat proti v rosporu s předdefinovanými pravidly.
+    \item \albert vyhlásí, kdo získal podle hlasování nejvíce hlasů. Některý vládce pronese závěrečný rozsudek o vině.
+	\item Odsouzený nemůže být upálen, pokud má únikovou schopnost -- řekne, co je za postavu, co mu toto poskytuje.
+	\item Má-li odsouzený vraždící předmět, může ještě někoho v blízkosti na poslední chvíli zavraždit (dotykem). Zavraždit někoho schopností není možné.
+    \item Po pronesení  ,,$X$ je upálen.'' vybraným vládcem hráč zemřel.
+\end{itemize}
+
+\textbf{Změnitelná pravidla}. Neexistují. Vládci je musí sestavit a vyhlásit na začátku hry.
+Zde jsou standarní doporučení:
+{\small
+\begin{itemize}
+    \item Definovat způsob hlasování.
+    \item Hlasování by mělo zajistit, že každý může hlasovat za jednoho mrtvého nejvýše jednou.
+    \item Z hlasování by měl s vysokou pravděpodobností vyjít jeden vyník.
+    \item Volič by měl mít (demokratickou) možnost výběru, pro koho bude hlasovat.
+\end{itemize}
+}
+
+\subsection{Oživení}
+
+Mrtvý může být oživen někým jiným a to:
+\begin{itemize}
+	\item lektvarem nebo
+	\item oživovací schopností.
+\end{itemize}
+Živý nesmí prozradit žádné informace, které se dozvěděl jako mrtvý.
+
+\section{Frakce}
+\label{sec:fractions}
+
+Frakcí je skupina hráčů sdílící hlavní herní úkol.
+
+\textbf{Středozemě}.
+Běžní obyvatelé Středozemě (tábora), velmi rozmanitá -- žijí tu lidé, elfové, trpaslíci, hobiti, \dots -- a musí si domluvit, jakým způsobem se jejich vláda vypřádá s nadcházející hrozbou.
+Ve znaku mají bílý strom.
+
+\textbf{Temná armáda}.
+Nepřirozené bytosti sloužící prvnímu generálovi temnot Sauronovi.
+Usilují o dobytí celé Středozemě pro sebe.
+Ve znaku mají oko Saurona.
+
+\textbf{Neutrální}.
+Existují sami za sebe. Nesdílí žádné úkoly s dalšími hráči nebo frakcemi.
+
+\section{Předměty}
+
+Předměty jsou téměř reálně vypadjící předměty, jež lze použít ve hře k akci (např. ochrana, oživení,\dots). Jelikož předměty reálně existují, může vám je někdo vzít, pokud si je nehlídáte (Fyzické násilí je zakázáno.) a předměty můžete kamkoliv schovat.
+
+Předměty můžete používat, pokud je máte fyzicky u sebe.
+
+Pro účinky lektvarů (po vypití) a speciálních předmětů, co to mají napsáno, se ihned zeptejte \albert.
+
+\subsection{Kameny moci}
+
+Tyto předměty nejsou jako jediné označeny popiskem.
+Vypadají jako barevné skleněnky.
+
+Jejich použítí je jednorázové.
+Efekt kamenu moci je možnost dalšího využití jedné hráčem vybrané schopnosti o jednu "jednotku" více.
+Např. to znamená, že pokud hráč může schopnost $A$ použít jednou za hru, s použitým kamenem moci lze schopnost $A$ využít dvakrát za hru.
+Navíc, pokud jinou schopnost $B$ lze využít jednou za den, s použitým kamenem moci lze schopnost $B$ využít dvakrát za den, a to i následující den dvakrát.
+
+\end{document}
+
+
+% \Ttelco \TTthreedots a
+% 
+% \Tumbar b
+% 
+% \Tcalma c
+% 
+% \Tando d
+% 
+% \Ttelco \TTacute e
+% 
+% \Tformen f
+% 
+% \Tanga g
+% 
+% \Thyarmen h
+% 
+% \Ttelco \TTdot i
+% 
+% \TTdot j
+% 
+% \Tcalma k
+% 
+% \Tlambe l
+% 
+% \Tmalta m
+% 
+% \Tnuumen n
+% 
+% \Ttelco \TTrightcurl o
+% 
+% \Tparma p
+% 
+% \Tquesse q
+% 
+% \Troomen r
+% 
+% \Tsilme s
+% 
+% \Ttinco t
+% 
+% \Ttelco \TTleftcurl u
+% 
+% \Tvala v
+% 
+% \Tvilya w
+% 
+% \Tcalma \Tlefthook x
+% 
+% \Tanna \TTtwodotsbelow y
+% 
+% \Tesse z
+% 
+% 
+% \Ttelco \TTthreedots A
+% 
+% \Tumbar B
+% 
+% \Tcalma C
+% 
+% \Tando D
+% 
+% \Ttelco \TTacute E
+% 
+% \Tformen F
+% 
+% \Tanga G
+% 
+% \Thyarmen H
+% 
+% \Ttelco \TTdot I
+% 
+% \TTdot J
+% 
+% \Tcalma K
+% 
+% \Tlambe L
+% 
+% \Tmalta M
+% 
+% \Tnuumen N
+% 
+% \Ttelco \TTrightcurl O
+% 
+% \Tparma P
+% 
+% \Tquesse Q
+% 
+% \Troomen R
+% 
+% \Tsilme S 
+% 
+% \Ttinco T
+% 
+% \Ttelco \TTleftcurl U
+% 
+% \Tvala V
+% 
+% \Tvilya W
+% 
+% \Tcalma \Tlefthook X
+% 
+% \Tanna \TTtwodotsbelow Y
+% 
+% \Tesse Z
+% 
